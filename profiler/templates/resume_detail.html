@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Detail Page</h1>
+            <p class="lead fw-normal text-white-50 mb-0">쇼핑할 물건의 상세 정보를 반환하는 페이지입니다</p>
+            </p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5" style="background-color: white;">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                {# a style="어쩌구저쩌구",href="{% url 'detail_page' item.pk %}"> detail.page라는 이름을 가진 url로 가며 item.pk라는 정보를 같이 가져간다 #}
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{ item.name }}</h5>
+                            <!-- Product price-->
+                            {{ item.price }}<br>
+                            {{ item.count }}<br>
+                            {# 템플릿 언어로 item에 해당하는 price를 가져와준다 #}
+                            <hr>
+                            {{ item.store }}<br>
+                            {{ item.store.address }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

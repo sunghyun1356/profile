@@ -1,1 +1,20 @@
-{% extends base.html %}
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" />
+<section id="skhsection" class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <form id='skhform' class="" method="POST">
+                {% csrf_token %}
+                {# form 만들때는 무조건 csrf_token 만들어 주기 #}
+                <input type="text" name="username" placeholder="ID"><br>
+                {# place holder는 흐리게 보이게 하는 것#}
+                <input type="text" name="password" placeholder="PW"><br>
+                <input id='skhbutton' type="submit" class="fadeIn fourth" value="Login">
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

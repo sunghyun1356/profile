@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth import get_user_model
 # Create your views here.
 
-User = get_user_model
+User = get_user_model()
 
 def login(request):
     if request.method == 'POST':
@@ -23,12 +23,12 @@ def register(request):
         user = User.objects.create_user(
             username = request.POST['username'],
             password = request.POST['password'],
-            phone = request.POST['phone']
-        )
+            phone = request.POST['phone'])
+        
         auth.login(request, user)
-        return redirect('list_page')
+        return redirect('homepage')
     return render(request ,'signup.html')
 
 def logout(request):
     auth.logout(request)
-    return redirect('list_page')
+    return redirect('homepage')

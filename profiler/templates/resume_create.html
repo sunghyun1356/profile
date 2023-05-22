@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<style>
+    /* 폼 스타일 */
+    form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 1000px 10px 10px rgba(0, 0, 0, 0.1);
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    /* 입력 필드 스타일 */
+    input[type="text"],
+    input[type="submit"] {
+        width: 800px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        color: #444;
+        font-size: 14px;
+    }
+
+    /* 제출 버튼 스타일 */
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<form enctype="multipart/form-data" action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="NEW RESUME">
+</form>
+{% endblock %}
